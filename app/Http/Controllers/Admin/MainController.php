@@ -9,7 +9,8 @@ class MainController extends Controller { // Контроллер для раб�
 
     public function index () { // Метод для отображения админ-панели
 
-        return view ('admin.index');
+        $title = 'Admin';
+        return view ('admin.index', compact ('title'));
 
     }
 
