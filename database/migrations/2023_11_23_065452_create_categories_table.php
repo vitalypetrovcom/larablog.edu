@@ -15,7 +15,7 @@ class CreateCategoriesTable extends Migration { // Миграция для ра�
         Schema::create('categories', function (Blueprint $table) {
             $table->increments ('id');
             $table->string ('title'); // Добавляем колонку 'title'
-            $table->string ('slug')/*->unique ()*/; // Добавляем колонку 'slug' и, при необходимости, можем сделать ее уникальной
+            $table->string ('slug')->unique (); // Добавляем колонку 'slug' и, при необходимости, можем сделать ее уникальной
             $table->timestamps();
         });
     }
