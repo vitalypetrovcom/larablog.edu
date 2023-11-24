@@ -23,8 +23,13 @@ Route::get('/', function () {
 Route::group (['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin'], function () {
     // Маршрут для главной страницы
     Route::get ('/', 'MainController@index')->name ('admin.index');
+
     // Маршрут для страницы категорий
     Route::resource ('/categories', 'CategoryController'); // Для каждого метода (action) контроллера 'CategoryController' будет маршрут со своим именем. Чтобы иметь перед глазами эти маршруты, в документации есть таблица для контроллера ресурсов (https://laravel.com/docs/8.x/controllers#actions-handled-by-resource-controller). В Ларавель есть специальная команда чтобы посмотреть все существующие маршруты: php artisan route:list. Для того, чтобы посмотреть только интересующие нас маршруты из полного списка, мы используем предыдущую команду с параметром --path=admin/cat (указываем здесь часть пути admin/cat): php artisan route:list --path=admin/cat
+
+    // Маршрут для страницы тегов
+    Route::resource ('/tags', 'TagController');
+
 });
 
 
