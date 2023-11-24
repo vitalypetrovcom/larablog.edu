@@ -225,7 +225,32 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    @yield('content') {{-- Подключаем контент страницы в шаблон --}}
+    <div class="content-wrapper">
+
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-12"> {{-- Показ валидационных ошибок (https://laravel.com/docs/8.x/validation#quick-displaying-the-validation-errors) --}}
+                    @if ($errors->any()) {{-- Выводим сообщение об ошибках --}}
+                        <div class="alert alert-danger">
+                            <ul class="list-unstyled"> {{-- Используем класс "list-unstyled" чтобы ошибки валидации были списком без маркера --}}
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if (session ()->has ('success')) {{-- Выводим сообщение об успехе --}}
+                        <div class="alert alert-success">
+                            {{ session ('success') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+        @yield('content') {{-- Подключаем контент страницы в шаблон --}}
+    </div>
     <!-- /.content-wrapper -->
 
     <footer class="main-footer">

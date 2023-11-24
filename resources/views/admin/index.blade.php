@@ -3,8 +3,7 @@
 @section('title') @parent:: {{ $title }} @endsection {{-- Конструкция {{ $title }} воспринимается как PHP код вида <?php echo $title ?>  --}}
 
 @section('content') {{-- Указываем контент страницы --}}
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+    <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -51,7 +50,7 @@
 
         </section>
         <!-- /.content -->
-    </div>
+
 @endsection
 
 

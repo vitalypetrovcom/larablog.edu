@@ -10,6 +10,8 @@ class Category extends Model { // Модель для работы с катег
 
     use Sluggable;
 
+    protected $fillable = ['title']; // Указываем, что мы разрешаем для данной модели массово заполнять title
+
     // Нам нужно указать связь категорий и поста. Наша категория может иметь много постов (связь "один ко многим" ИЛИ "многие к одному"). Нам нужна связь с помощью метода hasMany
     public function posts () { // Метод для связи категории и постов
 
@@ -22,9 +24,8 @@ class Category extends Model { // Модель для работы с катег
      *
      * @return array
      */
-    public function sluggable(): array
-    {
-        return [ // Поле 'slug' будет заполняться из источника - поля 'title'
+    public function sluggable(): array { // Поле 'slug' будет заполняться из источника - поля 'title'
+        return [
             'slug' => [
                 'source' => 'title'
             ]
