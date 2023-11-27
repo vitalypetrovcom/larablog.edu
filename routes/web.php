@@ -30,6 +30,9 @@ Route::group (['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin']
     // Маршрут для страницы тегов
     Route::resource ('/tags', 'TagController');
 
+    // Маршрут для страницы статей
+    Route::resource ('/posts', 'PostController');
+
 });
 
 

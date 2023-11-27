@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Редактирование тега</h1>
+                    <h1>Редактирование категории</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -26,12 +26,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Тег "{{ $tag->title }}"</h3>
+                            <h3 class="card-title">Категория "{{ $category->title }}"</h3>
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post"
-                              action="{{ route('tags.update', ['tag' => $tag->id]) }}"> {{-- Вторым аргументом в route передаем id категории: ['category' => $category->id] --}}
+                        <form role="form" method="post" action="{{ route('categories.update', ['category' => $category->id]) }}"> {{-- Вторым аргументом в route передаем id категории: ['category' => $category->id] --}}
 
                             @csrf
                             @method('PUT') {{-- Подменяем метод на 'PUT'--}}
@@ -40,7 +39,7 @@
                                     <label for="title">Название</label>
                                     <input type="text" name="title"
                                            class="form-control @error('title') is-invalid @enderror" id="title"
-                                           value="{{ $tag->title }}">
+                                           value="{{ $category->title }}">
                                 </div>
                             </div>
                             <!-- /.card-body -->

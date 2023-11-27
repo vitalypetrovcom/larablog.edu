@@ -15,6 +15,8 @@ const mix = require('laravel-mix');
 // Mix для создания и подключения общего файла стилей
 mix.styles([
     'resources/assets/admin/plugins/fontawesome-free/css/all.min.css',
+    'resources/assets/admin/plugins/select2/css/select2.css', /* Подключаем файл select2.css */
+    'resources/assets/admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.css', /* Подключаем файл select2-bootstrap4.css */
     'resources/assets/admin/css/adminlte.min.css',
 
 ], 'public/assets/admin/css/admin.css');
@@ -23,7 +25,9 @@ mix.styles([
 mix.scripts([
     'resources/assets/admin/plugins/jquery/jquery.min.js',
     'resources/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js',
+    'resources/assets/admin/plugins/select2/js/select2.full.js', /* Подключаем файл select2.full.js */
     'resources/assets/admin/js/adminlte.min.js',
+    'resources/assets/admin/js/demo.js',
 
 ], 'public/assets/admin/js/admin.js');
 
