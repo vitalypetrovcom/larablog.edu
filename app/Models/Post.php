@@ -10,10 +10,19 @@ class Post extends Model { // Модель для работы с постами
 
     use Sluggable;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'content',
+        'category_id',
+        'thumbnail',
+    ];
+
+
     // Один пост может иметь много тегов и одному тегу может принадлежать много постов. Это связь "многие ко многим". Получив пост мы получаем все теги, которые есть в данном посте
     public function tags () { // Метод для связи поста и тегов
 
-        return $this->belongsToMany (Tag::class); // Используем метод belongsToMany для модели Tag. Наш пост может иметь много тегов
+        return $this->belongsToMany (Tag::class)->withTimestamps (); // Используем метод belongsToMany для модели Tag. Наш пост может иметь много тегов. Для того, чтобы в таблице post_tag автоматически при добавлении записи автоматически заполнялись поля created_at/updated_at, мы используем метод withTimestamps (https://laravel.com/docs/8.x/eloquent-relationships#retrieving-intermediate-table-columns)
 
     }
 
