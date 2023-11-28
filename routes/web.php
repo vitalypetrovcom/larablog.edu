@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name ('home');
 
 // Маршруты для админ-панели в формате группы и ограничить к ней доступ для пользователей без роли администратора. Указываем префикс url адреса 'prefix' => 'admin' и наймспейс у всех контроллеров будет 'namespace' => 'Admin'. Вторым аргументом мы используем коллбек функцию, в которую будем помещать все админские маршруты
 /*Route::get ('/admin', 'Admin\MainController@index');*/ // Запись единичного маршрута
@@ -35,7 +35,11 @@ Route::group (['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin']
 
 });
 
+// Маршрут для показа формы регистрации пользователя
+Route::get('/register', 'App\Http\Controllers\UserController@create')->name ('register.create');
 
+// Маршрут для сохранения данных формы регистрации пользователя
+Route::post('/register', 'App\Http\Controllers\UserController@store')->name ('register.store');
 
 
 
