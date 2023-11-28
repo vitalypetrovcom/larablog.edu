@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model { // Модель для работы с постами
 
@@ -45,6 +47,31 @@ class Post extends Model { // Модель для работы с постами
                 'source' => 'title'
             ]
         ];
+    }
+
+    public static function uploadImage (Request $request, $image = null) { // Метод для загрузки картинок thumbnails для статей. Данный метод запишет путь к картинке или null (если картинка не передавалась/не загружалась). Вторым аргументом, для метода update в контроллере PostController передаем переменную $image, которая имеет по умолчанию значение null (может отсутствовать)
+
+        // Перед тем, как записать новое изображение, нам нужно удалить существующее (если есть) и только потом записать новое изображение в БД
+        // Проверяем, передается ли из заполняемой формы файл 'thumbnail'
+        if ($request->hasFile ('thumbnail')) { // Если файл пришел, тогда
+            // Удаляем существующий файл (если он есть). Для этого используем в классе Facade\Storage метод delete (https://laravel.com/docs/8.x/filesystem#deleting-files)
+            if ( $image ) { // Если у нас есть данные в переменной $image (есть картинка в посте), тогда мы удалим картинку
+                Storage::delete ($image);
+            }
+            $folder = date('Y-m-d'); // Указываем название папки для картинок
+            return $request->file ('thumbnail')->store ("images/{$folder}"); // Сохраняем и вернем файл.
+        }
+        return null;
+    }
+
+    public function getImage () { // Метод для получения(отображения) прикрепленной к посту картинке в админке при создании и редактировании статье
+
+        if (!$this->thumbnail) { // Если у модели нет прикрепленного изображения, тогда мы вернем изображение по умолчанию с помощью функции хелпера asset
+
+            return asset("no-image.png"); // asset у нас уже находится в папке public и файл в этой же папке
+
+        }
+        return asset("uploads/{$this->thumbnail}"); // Если картинка есть, выводим картинку
     }
 
 

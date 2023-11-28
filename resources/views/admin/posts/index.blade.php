@@ -50,7 +50,7 @@
                                                     <td>{{ $post->id }}</td>
                                                     <td>{{ $post->title }}</td>
                                                     <td>{{ $post->category->title }}</td>
-                                                    <td>{{ $post->tags }}</td>
+                                                    <td>{{ $post->tags->pluck('title')->join (', ') }}</td> {{-- Теги здесь выводятся в виде коллекции (не читаемый вид). В Ларавель есть методы для работы с коллекциями (приводят данные в читаемый вид). Используем для этого метод pluck (https://laravel.com/docs/8.x/collections#method-pluck)  и выводим только 'title'. Чтобы полученный результат был читаемым, нам поможет метод join (https://laravel.com/docs/8.x/collections#method-join) --}}
                                                     <td>{{ $post->created_at }}</td>
                                                     <td>
                                                         <a href="{{ route('posts.edit', ['post' => $post->id]) }}" {{-- Указываем ссылку на редактирование категории - маршрут категории 'categories.edit' и дополнительный параметр ['category' => $category->id] --}} class="btn btn-info btn-sm float-left mr-1">

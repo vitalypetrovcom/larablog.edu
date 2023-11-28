@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Редактирование категории</h1>
+                    <h1>Редактирование статьи</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -26,12 +26,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Категория "{{ $category->title }}"</h3>
+                            <h3 class="card-title">Редактирование "{{ $post->title }}"</h3>
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post" action="{{ route('categories.update', ['category' => $category->id]) }}"> {{-- Вторым аргументом в route передаем id категории: ['category' => $category->id] --}}
-
+                        <form role="form" method="post" action="{{ route('posts.update' , ['post' => $post->id]) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT') {{-- Подменяем метод на 'PUT'--}}
                             <div class="card-body">
@@ -39,8 +38,50 @@
                                     <label for="title">Название</label>
                                     <input type="text" name="title"
                                            class="form-control @error('title') is-invalid @enderror" id="title"
-                                           value="{{ $category->title }}">
+                                           value="{{ $post->title }}">
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="description">Цитата</label>
+                                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" rows="3" >{{ $post->description }}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="content">Контент</label>
+                                    <textarea name="content" class="form-control @error('content') is-invalid @enderror" id="content" rows="7" >{{ $post->content }}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="category_id">Категория</label>
+                                    <select class="form-control" id="category_id" name="category_id">
+                                        {{--<option>Выбрать категорию</option>--}}
+                                        @foreach($categories as $k => $v)
+                                            <option value="{{ $k }}" @if($k == $post->category_id) selected @endif>{{ $v }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tags">Теги</label>
+                                    <select name="tags[]" id="tags"  {{--Чтобы нам получить несколько тегов, мы указываем вывод в виде массива name="tags[]" --}}class="select2" multiple="multiple"
+                                            data-placeholder="Выбор тегов" style="width: 100%;">
+                                        @foreach($tags as $k => $v) {{-- Для получения сохраненных тегов из БД мы используем функцию in_array (поиск указанных значений в массиве) в которую мы передаем значение $k (тег-ключ, с которым мы ищем совпадения в массиве) и проверяем его в списке прикрепленных тегов в массиве $post->tags->pluck ('id')->all () (список прикрепленных тегов мы получаем через связь $post->tags и используем метод pluck с аргументом 'id' и нам нужно получить все значения ->all  ) --}}
+                                            <option value="{{ $k }}" @if(in_array($k, $post->tags->pluck ('id')->all ())) selected @endif>{{ $v }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group" >
+                                    <label for="thumbnail">Изображение</label>
+                                    <div class="input-group" >
+                                        <div class="custom-file">
+                                            <input type="file" name="thumbnail" id="thumbnail"  class="custom-file-input">
+                                            <label class="custom-file-label" for="thumbnail">Выбрать файл</label>
+                                        </div>
+                                    </div>
+                                    <div ><img src="{{ $post->getImage () }}" alt="" class="fa-thumbs-o-up mt-2" width="200"></div>
+                                </div>
+
                             </div>
                             <!-- /.card-body -->
 
