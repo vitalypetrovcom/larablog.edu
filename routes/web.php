@@ -20,7 +20,7 @@ Route::get('/', function () {
 // Маршруты для админ-панели в формате группы и ограничить к ней доступ для пользователей без роли администратора. Указываем префикс url адреса 'prefix' => 'admin' и наймспейс у всех контроллеров будет 'namespace' => 'Admin'. Вторым аргументом мы используем коллбек функцию, в которую будем помещать все админские маршруты
 /*Route::get ('/admin', 'Admin\MainController@index');*/ // Запись единичного маршрута
 // Запись группы маршрутов
-Route::group (['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin'], function () {
+Route::group (['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'admin'], function () { // Добавляем третьим аргументом посредник для контроля доступа к админке
     // Маршрут для главной страницы
     Route::get ('/', 'MainController@index')->name ('admin.index');
 
@@ -35,14 +35,25 @@ Route::group (['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin']
 
 });
 
-// Маршрут для показа формы регистрации пользователя
-Route::get('/register', 'App\Http\Controllers\UserController@create')->name ('register.create');
+// Заключаем маршруты в группу используя посредник для контроля доступа и отображения нужных нам ссылок ['middleware' => 'guest']
+Route::group (['middleware' => 'guest'], function () {
+    // Маршрут для показа формы регистрации пользователя
+    Route::get('/register', 'App\Http\Controllers\UserController@create')->name ('register.create');
 
 // Маршрут для сохранения данных формы регистрации пользователя
-Route::post('/register', 'App\Http\Controllers\UserController@store')->name ('register.store');
+    Route::post('/register', 'App\Http\Controllers\UserController@store')->name ('register.store');
+
+// Маршрут для показа формы авторизации пользователя
+    Route::get ('/login', 'App\Http\Controllers\UserController@loginForm')->name ('login.create');
+
+// Маршрут для авторизации пользователя
+    Route::post ('/login', 'App\Http\Controllers\UserController@login')->name ('login');
+});
 
 
 
+// Маршрут для выхода из авторизации пользователя
+Route::get ('/logout', 'App\Http\Controllers\UserController@logout')->name ('logout')->middleware ('auth'); // Добавляем к маршруту посредник middleware ('auth'), который отобразит данный маршрут только для авторизованных пользователей 'auth'
 
 
 
