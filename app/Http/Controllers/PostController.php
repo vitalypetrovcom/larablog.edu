@@ -14,7 +14,7 @@ class PostController extends Controller { // Контроллер для раб�
 
     public function show () { // Метод для просмотра одной статьи
 
-        return view ('posts.single');
+        return view ('posts.show');
 
     }
 

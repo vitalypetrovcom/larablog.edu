@@ -15,7 +15,7 @@ class TagController extends Controller { // Контроллер для рабо
     public function index() { // Метод для отображения тегов
 
 
-       $tags = Tag::paginate (2); // Объявляем переменную $categories и записываем в нее все наши категории с помощью класса Category и метода paginate
+       $tags = Tag::paginate (5); // Объявляем переменную $categories и записываем в нее все наши категории с помощью класса Category и метода paginate
 
         return view ('admin.tags.index', compact ('tags'));
 
@@ -101,13 +101,19 @@ class TagController extends Controller { // Контроллер для рабо
      */
     public function destroy($id) { // Метод для удаления существующего тега
 
-        /*// Найдем нужную категорию по id
-        $category = Category::find($id);
-        // Удалим категорию
-        $category->delete ();*/
+        // Найдем нужный тег по id
+        $tag = Tag::find($id);
+
+        // Посмотрим, есть ли у данного тега связанные посты. Делаем это через связь $tag->posts (это у нас коллекция, мы можем использовать метод для работы с коллекциями count, который через связь $tag->posts вернет нам количество связанных постов
+        if ( $tag->posts->count () ) { // Если связанные посты есть:
+            return redirect ()->route ('tags.index')->with ('error', 'Ошибка! У тега есть связанные статьи!'); // Не удаляем тег и выдаем ошибку
+        };
+
+        // Если связанных статей нет - Удалим тег
+        $tag->delete ();
 
         // Альтернативный вариант удаления тега
-        Tag::destroy ($id);
+//        Tag::destroy ($id);
 
         return redirect ()->route ('tags.index')->with ('success', 'Тег удален!'); // Делаем редирект на главную страницу наших тегов и показываем сообщение с помощью метода with об успешном удалении тега
 

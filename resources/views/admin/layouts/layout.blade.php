@@ -292,6 +292,12 @@
                         </div>
                     @endif
 
+                    @if (session ()->has ('error')) {{-- Выводим сообщение об ошибке --}}
+                    <div class="alert alert-danger">
+                        {{ session ('error') }}
+                    </div>
+                    @endif
+
                     @if (session ()->has ('success')) {{-- Выводим сообщение об успехе --}}
                         <div class="alert alert-success">
                             {{ session ('success') }}
@@ -330,7 +336,13 @@
             $(this).addClass('active'); // чтобы выделить подсветить ссылку
             $(this).closest('.has-treeview').addClass('menu-open'); // раскрыть пункт меню, в которой находится эта ссылка
         }
+
     });
+
+    $(document).ready(function () { // Инициализация плагина bs-custom-file-input (функции отображения имени файла при добавлении картинки в форму создания/изменения статьи)
+        bsCustomFileInput.init();
+    });
+
 </script>
 
 {{-- Подключаем скрипты текстового редактора CKEditor --}}
