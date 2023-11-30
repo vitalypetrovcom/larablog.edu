@@ -13,9 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name ('home');
+// --- // Важно иметь в виду, чтобы имена name ('---') админских маршрутов (админ-панель) не были такими же (не было повторов) как имена пользовательских маршрутов (фронтенд - пользовательская часть)
+
+// Маршрут для главной страницы
+Route::get('/', 'App\Http\Controllers\PostController@index')->name ('home');
+
+// Маршрут для просмотра отдельной статьи(поста)
+Route::get('/article', 'App\Http\Controllers\PostController@show')->name ('posts.single');
+
+// Маршрут для просмотра категорий статей(постов)
+Route::get('/category', 'App\Http\Controllers\CategoryController@index')->name ('category.index');
+
+
 
 // Маршруты для админ-панели в формате группы и ограничить к ней доступ для пользователей без роли администратора. Указываем префикс url адреса 'prefix' => 'admin' и наймспейс у всех контроллеров будет 'namespace' => 'Admin'. Вторым аргументом мы используем коллбек функцию, в которую будем помещать все админские маршруты
 /*Route::get ('/admin', 'Admin\MainController@index');*/ // Запись единичного маршрута
@@ -54,6 +63,7 @@ Route::group (['middleware' => 'guest'], function () {
 
 // Маршрут для выхода из авторизации пользователя
 Route::get ('/logout', 'App\Http\Controllers\UserController@logout')->name ('logout')->middleware ('auth'); // Добавляем к маршруту посредник middleware ('auth'), который отобразит данный маршрут только для авторизованных пользователей 'auth'
+
 
 
 

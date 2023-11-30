@@ -39,3 +39,35 @@ mix.copyDirectory('resources/assets/admin/img', 'public/assets/admin/img');
 // Копирование файла adminlte.min.css.map в папку public/assets/admin/css
 mix.copy('resources/assets/admin/css/adminlte.min.css.map', 'public/assets/admin/css/adminlte.min.css.map');
 
+// Mix для создания и подключения общего файла стилей для фронтенд шаблона
+mix.styles([
+    'resources/assets/front/css/bootstrap.css',
+    'resources/assets/front/css/font-awesome.min.css',
+    'resources/assets/front/style.css',
+    'resources/assets/front/css/animate.css',
+    'resources/assets/front/css/responsive.css',
+    'resources/assets/front/css/colors.css',
+    'resources/assets/front/css/version/marketing.css',
+
+], 'public/assets/front/css/front.css');
+
+// Mix для создания и подключения общего файла скриптов для фронтенд шаблона
+mix.scripts([
+    'resources/assets/front/js/jquery.min.js',
+    'resources/assets/front/js/tether.min.js',
+    'resources/assets/front/js/bootstrap.min.js',
+    'resources/assets/front/js/animate.js',
+    'resources/assets/front/js/custom.js',
+
+], 'public/assets/front/js/front.js');
+
+
+// Копирование папки со шрифтами webfonts подключаемого шаблона в папку public/assets (что копируем, куда копируем)
+mix.copyDirectory('resources/assets/front/fonts', 'public/assets/front/fonts');
+
+// Копирование папки с картинками images подключаемого шаблона в папку public/assets (что копируем, куда копируем)
+mix.copyDirectory('resources/assets/front/images', 'public/assets/front/images');
+
+// Копирование папки с загружаемыми файлами upload подключаемого шаблона в папку public/assets (что копируем, куда копируем)
+mix.copyDirectory('resources/assets/front/upload', 'public/assets/front/upload');
+
