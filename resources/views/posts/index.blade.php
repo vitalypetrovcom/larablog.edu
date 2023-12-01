@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 
+@section('title', 'Markedia - Blog:: Home') {{-- Передаем второй аргумент-значение вместо закрывающего тега @endsection --}}
+
+
 @section('header')
     <section id="cta" class="section">
         <div class="container">
@@ -24,7 +27,6 @@
     </section>
 @endsection
 
-@section('title', 'Markedia - Blog:: Home') {{-- Передаем второй аргумент-значение вместо закрывающего тега @endsection --}}
 
 @section('content')
     <div class="page-wrapper">
