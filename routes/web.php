@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\PostController@index')->name ('home');
 
 // Маршрут для просмотра отдельной статьи(поста)
-Route::get('/article', 'App\Http\Controllers\PostController@show')->name ('posts.single');
+Route::get('/article/{slug}', 'App\Http\Controllers\PostController@show')->name ('posts.single');
+// Маршрут для просмотра отдельной категории
+Route::get('/category/{slug}', 'App\Http\Controllers\CategoryController@show')->name ('categories.single');
 
 // Маршрут для просмотра категорий статей(постов)
 Route::get('/category', 'App\Http\Controllers\CategoryController@index')->name ('category.index');

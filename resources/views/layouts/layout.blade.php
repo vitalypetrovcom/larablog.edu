@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Markedia - Index Template</title>
+<title>@yield('title')</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -91,7 +91,7 @@
                         <h2 class="widget-title">Recent Posts</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="assets/front/upload/small_04.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
@@ -99,7 +99,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="assets/front/upload/small_05.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Let's make an introduction for creative life</h5>
@@ -107,7 +107,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 last-item justify-content-between">
                                         <img src="assets/front/upload/small_06.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
@@ -124,7 +124,7 @@
                         <h2 class="widget-title">Popular Posts</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="assets/front/upload/small_01.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Banana-chip chocolate cake recipe with customs</h5>
@@ -138,7 +138,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="assets/front/upload/small_02.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">10 practical ways to choose organic vegetables</h5>
@@ -152,7 +152,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 last-item justify-content-between">
                                         <img src="assets/front/upload/small_03.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">We are making homemade ravioli, nice and good</h5>

@@ -3,7 +3,7 @@
             <h2 class="widget-title">Recent Posts</h2>
             <div class="blog-list-widget">
                 <div class="list-group">
-                    <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="w-100 justify-content-between">
                             <img src="assets/front/upload/small_07.jpg" alt="" class="img-fluid float-left">
                             <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
@@ -11,7 +11,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="w-100 justify-content-between">
                             <img src="assets/front/upload/small_08.jpg" alt="" class="img-fluid float-left">
                             <h5 class="mb-1">Let's make an introduction for creative life</h5>
@@ -19,7 +19,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="w-100 last-item justify-content-between">
                             <img src="assets/front/upload/small_09.jpg" alt="" class="img-fluid float-left">
                             <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>

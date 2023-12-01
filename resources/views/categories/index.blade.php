@@ -99,7 +99,7 @@
                             <h2 class="widget-title">Recent Posts</h2>
                             <div class="blog-list-widget">
                                 <div class="list-group">
-                                    <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="w-100 justify-content-between">
                                             <img src="assets/front/upload/small_07.jpg" alt="" class="img-fluid float-left">
                                             <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
@@ -107,7 +107,7 @@
                                         </div>
                                     </a>
 
-                                    <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="w-100 justify-content-between">
                                             <img src="assets/front/upload/small_08.jpg" alt="" class="img-fluid float-left">
                                             <h5 class="mb-1">Let's make an introduction for creative life</h5>
@@ -115,7 +115,7 @@
                                         </div>
                                     </a>
 
-                                    <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="w-100 last-item justify-content-between">
                                             <img src="assets/front/upload/small_09.jpg" alt="" class="img-fluid float-left">
                                             <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
@@ -172,7 +172,7 @@
                         <div class="blog-custom-build">
                             <div class="blog-box wow fadeIn">
                                 <div class="post-media">
-                                    <a href="{{ route('posts.single') }}" title="">
+                                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">
                                         <img src="assets/front/upload/market_blog_01.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect">
                                             <span></span>
@@ -189,10 +189,10 @@
                                             <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
                                         </ul>
                                     </div><!-- end post-sharing -->
-                                    <h4><a href="{{ route('posts.single') }}" title="">You can learn how to make money with your blog and videos</a></h4>
+                                    <h4><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">You can learn how to make money with your blog and videos</a></h4>
                                     <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat elicerat eli nibh, maximus ac felis nec, maximus tempor odio.</p>
                                     <small><a href="marketing-category.html" title="">Make Money</a></small>
-                                    <small><a href="{{ route('posts.single') }}" title="">24 July, 2017</a></small>
+                                    <small><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">24 July, 2017</a></small>
                                     <small><a href="#" title="">by Jack</a></small>
                                     <small><a href="#" title=""><i class="fa fa-eye"></i> 2291</a></small>
                                 </div><!-- end meta -->
@@ -202,7 +202,7 @@
 
                             <div class="blog-box wow fadeIn">
                                 <div class="post-media">
-                                    <a href="{{ route('posts.single') }}" title="">
+                                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">
                                         <img src="assets/front/upload/market_blog_02.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect">
                                             <span></span>
@@ -219,10 +219,10 @@
                                             <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
                                         </ul>
                                     </div><!-- end post-sharing -->
-                                    <h4><a href="{{ route('posts.single') }}" title="">The way to reach hundreds of thousands of customers is through the SEO</a></h4>
+                                    <h4><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">The way to reach hundreds of thousands of customers is through the SEO</a></h4>
                                     <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat elicerat eli nibh, maximus ac felis nec, maximus tempor odio.</p>
                                     <small><a href="marketing-category.html" title="">Marketing</a></small>
-                                    <small><a href="{{ route('posts.single') }}" title="">21 July, 2017</a></small>
+                                    <small><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">21 July, 2017</a></small>
                                     <small><a href="#" title="">by Jack</a></small>
                                     <small><a href="#" title=""><i class="fa fa-eye"></i> 666</a></small>
                                 </div><!-- end meta -->
@@ -232,7 +232,7 @@
 
                             <div class="blog-box wow fadeIn">
                                 <div class="post-media">
-                                    <a href="{{ route('posts.single') }}" title="">
+                                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">
                                         <img src="assets/front/upload/market_blog_03.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect">
                                             <span></span>
@@ -249,10 +249,10 @@
                                             <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
                                         </ul>
                                     </div><!-- end post-sharing -->
-                                    <h4><a href="{{ route('posts.single') }}" title="">Ways to reach the world through mobile phones</a></h4>
+                                    <h4><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">Ways to reach the world through mobile phones</a></h4>
                                     <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat elicerat eli nibh, maximus ac felis nec, maximus tempor odio.</p>
                                     <small><a href="marketing-category.html" title="">Technology</a></small>
-                                    <small><a href="{{ route('posts.single') }}" title="">20 July, 2017</a></small>
+                                    <small><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">20 July, 2017</a></small>
                                     <small><a href="#" title="">by Martin</a></small>
                                     <small><a href="#" title=""><i class="fa fa-eye"></i> 441</a></small>
                                 </div><!-- end meta -->
@@ -262,7 +262,7 @@
 
                             <div class="blog-box wow fadeIn">
                                 <div class="post-media">
-                                    <a href="{{ route('posts.single') }}" title="">
+                                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">
                                         <img src="assets/front/upload/market_blog_04.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect">
                                             <span></span>
@@ -279,10 +279,10 @@
                                             <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
                                         </ul>
                                     </div><!-- end post-sharing -->
-                                    <h4><a href="{{ route('posts.single') }}" title="">Would you like to work as a freelancer for lifetime?</a></h4>
+                                    <h4><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">Would you like to work as a freelancer for lifetime?</a></h4>
                                     <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat elicerat eli nibh, maximus ac felis nec, maximus tempor odio.</p>
                                     <small><a href="marketing-category.html" title="">Technology</a></small>
-                                    <small><a href="{{ route('posts.single') }}" title="">20 July, 2017</a></small>
+                                    <small><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">20 July, 2017</a></small>
                                     <small><a href="#" title="">by Martin</a></small>
                                     <small><a href="#" title=""><i class="fa fa-eye"></i> 8934</a></small>
                                 </div><!-- end meta -->
@@ -292,7 +292,7 @@
 
                             <div class="blog-box wow fadeIn">
                                 <div class="post-media">
-                                    <a href="{{ route('posts.single') }}" title="">
+                                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">
                                         <img src="assets/front/upload/market_blog_05.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect">
                                             <span></span>
@@ -309,10 +309,10 @@
                                             <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
                                         </ul>
                                     </div><!-- end post-sharing -->
-                                    <h4><a href="{{ route('posts.single') }}" title="">Ten golden rules to be followed for a real team work</a></h4>
+                                    <h4><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">Ten golden rules to be followed for a real team work</a></h4>
                                     <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat elicerat eli nibh, maximus ac felis nec, maximus tempor odio.</p>
                                     <small><a href="marketing-category.html" title="">Technology</a></small>
-                                    <small><a href="{{ route('posts.single') }}" title="">19 July, 2017</a></small>
+                                    <small><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">19 July, 2017</a></small>
                                     <small><a href="#" title="">by Martin</a></small>
                                     <small><a href="#" title=""><i class="fa fa-eye"></i> 451</a></small>
                                 </div><!-- end meta -->
@@ -322,7 +322,7 @@
 
                             <div class="blog-box wow fadeIn">
                                 <div class="post-media">
-                                    <a href="{{ route('posts.single') }}" title="">
+                                    <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">
                                         <img src="assets/front/upload/market_blog_06.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect">
                                             <span></span>
@@ -339,10 +339,10 @@
                                             <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
                                         </ul>
                                     </div><!-- end post-sharing -->
-                                    <h4><a href="{{ route('posts.single') }}" title="">Thanks to the Internet, there is no limit to what you will just try!</a></h4>
+                                    <h4><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">Thanks to the Internet, there is no limit to what you will just try!</a></h4>
                                     <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat elicerat eli nibh, maximus ac felis nec, maximus tempor odio.</p>
                                     <small><a href="marketing-category.html" title="">Technology</a></small>
-                                    <small><a href="{{ route('posts.single') }}" title="">19 July, 2017</a></small>
+                                    <small><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">19 July, 2017</a></small>
                                     <small><a href="#" title="">by Martin</a></small>
                                     <small><a href="#" title=""><i class="fa fa-eye"></i> 192</a></small>
                                 </div><!-- end meta -->
@@ -379,7 +379,7 @@
                         <h2 class="widget-title">Recent Posts</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="assets/front/upload/small_04.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
@@ -387,7 +387,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="assets/front/upload/small_05.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Let's make an introduction for creative life</h5>
@@ -395,7 +395,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 last-item justify-content-between">
                                         <img src="assets/front/upload/small_06.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
@@ -412,7 +412,7 @@
                         <h2 class="widget-title">Popular Posts</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="assets/front/upload/small_01.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Banana-chip chocolate cake recipe with customs</h5>
@@ -426,7 +426,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="assets/front/upload/small_02.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">10 practical ways to choose organic vegetables</h5>
@@ -440,7 +440,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ route('posts.single') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="{{ route('posts.single', ['slug' => $post->slug]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 last-item justify-content-between">
                                         <img src="assets/front/upload/small_03.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">We are making homemade ravioli, nice and good</h5>

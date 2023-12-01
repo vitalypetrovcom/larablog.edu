@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -72,6 +73,10 @@ class Post extends Model { // Модель для работы с постами
 
         }
         return asset("uploads/{$this->thumbnail}"); // Если картинка есть, выводим картинку
+    }
+
+    public function getPostDate() { // Метод для вывода даты в читаемом варианте. Используем возможности класса Carbon для работы с датами
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d F, Y');
     }
 
 
