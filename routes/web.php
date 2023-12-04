@@ -25,7 +25,7 @@ Route::get('/article/{slug}', 'App\Http\Controllers\PostController@show')->name 
 Route::get('/category/{slug}', 'App\Http\Controllers\CategoryController@show')->name ('categories.single');
 
 // Маршрут для просмотра тегов
-Route::get('/tag/{slug}', 'App\Http\Controllers\TagController@index')->name ('tags.single');
+Route::get('/tag/{slug}', 'App\Http\Controllers\TagController@show')->name ('tags.single');
 
 
 // Маршруты для админ-панели в формате группы и ограничить к ней доступ для пользователей без роли администратора. Указываем префикс url адреса 'prefix' => 'admin' и наймспейс у всех контроллеров будет 'namespace' => 'Admin'. Вторым аргументом мы используем коллбек функцию, в которую будем помещать все админские маршруты
