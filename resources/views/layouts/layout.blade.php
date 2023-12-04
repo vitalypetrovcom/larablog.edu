@@ -76,7 +76,7 @@
 
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 
-                    @include('layouts.sidebar');
+                     @include('layouts.sidebar')
 
                 </div><!-- end col -->
             </div><!-- end row -->

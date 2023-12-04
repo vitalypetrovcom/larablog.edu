@@ -1,4 +1,6 @@
-    <div class="sidebar">
+@include('categories.category_sub_form')
+
+<div class="sidebar">
         <div class="widget">
             <h2 class="widget-title">Recent Posts</h2>
             <div class="blog-list-widget">
