@@ -79,5 +79,15 @@ class Post extends Model { // Модель для работы с постами
         return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d F, Y');
     }
 
+    public function scopeLike ($query, $s) { // Скоуп-метод для поиска постов. На вход он будет принимать  $query и строку поискового запроса $s. Так же, данный метод можно применять для поиска по разным полям (в этом случае, нам будет нужно передать еще дополнительный аргумент)
+
+        return $query->where('title', 'LIKE', "%{$s}%"); // Метод scopeLike будет (в контроллере мы будем его использовать как like) возвращать нам query-builder, который будет выбирать с помощью оператора 'LIKE' записи согласно запросу пользователя "%{$s}%".
+        // Тогда в SearchController в методе index вместо выражения:
+        /*$posts = Post::where('title', 'LIKE', "%{$s}%")->with('category')->paginate (2);*/
+        // Мы будем использовать
+        /*$posts = Post::like($s)->with('category')->paginate (2);*/ // Передаем скоуп-методу like переменную $s (поисковый запрос)
+
+    }
+
 
 }
